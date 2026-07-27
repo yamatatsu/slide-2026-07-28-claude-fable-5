@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "slidev",
-    "build": "slidev build",
+    "build": "slidev build --base /slide-2026-07-28-claude-fable-5/",
     "export": "slidev export",
     "snapshot": "bun scripts/snapshot.ts"
   },
