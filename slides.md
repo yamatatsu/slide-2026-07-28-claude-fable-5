@@ -79,7 +79,7 @@ layout: full
 
 ### できたもの（デモ）
 
-<SlidevVideo controls autoplay>
+<SlidevVideo controls autoplay preload="auto">
   <source src="/public/demo.mp4" type="video/mp4" />
 </SlidevVideo>
 
