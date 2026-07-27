@@ -9,8 +9,6 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
-# GitHub Pages は SPA フォールバックが無く history モードだと直リンク/更新が 404 になるため hash に
-routerMode: hash
 ---
 
 # Fable 5 の<br>フォールバックについて
