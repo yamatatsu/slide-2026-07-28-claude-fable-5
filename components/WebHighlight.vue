@@ -26,6 +26,13 @@ const cfg = registry[props.name]
 if (!cfg) throw new Error(`unknown highlight scenario: ${props.name}`)
 const DESIGN_WIDTH = cfg.width ?? 1380
 
+// registry の src は '/snapshots/xxx.html' 形式（先頭スラッシュ）だが、これは
+// 動的バインディングのため Vite が base を前置してくれない。GitHub Pages の
+// サブパス配信（base=/slide-.../）では base を明示的に付けないと iframe が
+// 404 になるため、import.meta.env.BASE_URL を前置して解決する。
+// dev では BASE_URL='/' なので従来どおり '/snapshots/xxx.html' になる。
+const resolvedSrc = import.meta.env.BASE_URL.replace(/\/$/, '') + cfg.src
+
 const wrapper = ref<HTMLDivElement>()
 const frame = ref<HTMLIFrameElement>()
 const scale = ref(0.6)
@@ -249,7 +256,7 @@ watch([$clicks, isActive], ([clicks]) => applyStep(clicks))
     <iframe
       v-if="shouldRender"
       ref="frame"
-      :src="cfg.src"
+      :src="resolvedSrc"
       :style="{
         width: `${DESIGN_WIDTH}px`,
         height: `${frameHeight}px`,
