@@ -46,6 +46,40 @@ export const registry: Record<string, PageScenario> = {
     ],
   },
 
+  // ───────── Claude Opus 5とは（ニュース記事 / Fable 5との比較） ─────────
+  'opus5-vs-fable': {
+    src: '/snapshots/opus5.html',
+    hide: ['header', 'nav'],
+    // start: 'Claude Opus 5 is available today',
+    steps: [
+      {
+        find: 'comes close to the frontier intelligence of Claude Fable 5 at half the price',
+        title: 'Fable 5に迫る知能を半額で',
+        note: 'Opus 5は思慮深く先回りするモデルで、Claude Fable 5のフロンティア知能に半分の価格で肉薄します。',
+      },
+      {
+        find: "performs within 0.5% of Fable 5's peak score, but at half the cost per task",
+        title: 'ベンチマークでもほぼ互角',
+        note: 'CursorBench 3.2のmax effortで、Opus 5はFable 5のピークスコアの0.5%以内に迫りつつ、タスクあたりのコストは半分です。',
+      },
+      {
+        find: "surpassing Fable 5's best result at just over a third of the cost",
+        title: 'コンピュータ操作ではFable 5超え',
+        note: 'OSWorld 2.0（コンピュータ操作ベンチマーク）では、Fable 5のベスト結果をコスト1/3強で上回っています。',
+      },
+      {
+        find: 'better than Opus 4.8, Sonnet 5, or Fable 5',
+        title: 'アライメントは過去最高',
+        note: 'Opus 5は自動行動監査で過去最もアラインしたモデルと評価されました。Claude憲法への遵守はOpus 4.8・Sonnet 5・Fable 5のいずれよりも優秀です。',
+      },
+      {
+        find: 'expect the classifiers to intervene around 85% less often',
+        title: 'セーフガードの発動は約85%減',
+        note: 'サイバー分類器はFable 5より緩やかで、発動頻度はFable 5比で約85%少ない見込み。Claude Code等では、フラグされたリクエストはOpus 4.8へフォールバックします。',
+      },
+    ],
+  },
+
   // ───────── Mythos 5との違い（APIドキュメント） ─────────
   'vs-mythos': {
     src: '/snapshots/docs.html',

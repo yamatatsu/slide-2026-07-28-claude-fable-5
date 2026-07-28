@@ -256,6 +256,19 @@ layout: center
 ### 😇
 
 ---
+layout: full
+clicks: 5
+---
+
+<div class="h-full flex flex-col gap-3 p-6 pb-8">
+  <div class="flex items-baseline gap-4">
+    <h2 class="!m-0 !text-2xl">Opus 5とFable 5</h2>
+    <span class="text-xs op50 font-mono">anthropic.com/news/claude-opus-5</span>
+  </div>
+  <WebHighlight name="opus5-vs-fable" class="flex-1 min-h-0" />
+</div>
+
+---
 layout: center
 ---
 
