@@ -33,12 +33,19 @@ layout: center
 layout: center
 ---
 
-1. Fable5のフォールバック
-1. 今回作ったもの
+### 簡単な目次
+
+<br>
+
+1. Fable5のフォールバックについて
+1. Fable5でフロントエンドからインフラまで作ってみた
 1. いつフォールバックするか
-1. どれくらいクレジットを消費したか
-1. Opus5だとどうなるか
-1. Fable5 /w sonnet5 subagnets だとどうなるか
+
+---
+layout: center
+---
+
+# Fable5のフォールバックについて
 
 ---
 layout: full
@@ -63,6 +70,12 @@ layout: center
 layout: center
 ---
 
+### なにか作ってみよう 🤔
+
+---
+layout: center
+---
+
 ### なにか作ってみよう
 
 以下を含むもの
@@ -74,10 +87,16 @@ layout: center
 - テスト
 
 ---
+layout: center
+---
+
+## できたもの紹介
+
+---
 layout: full
 ---
 
-### できたもの（デモ）
+### できたもの
 
 <SlidevVideo controls autoplay preload="auto">
   <source src="/public/demo.mp4" type="video/mp4" />
@@ -120,21 +139,38 @@ Yjsとは
 - undo/redoをサポート
 
 ---
-layout: two-cols
+layout: full
 ---
 
-### できたもの
+## 構成
 
-<img src="/public/appsync_events_yjs_sync_architecture.svg" width="100%">
-
-::right::
-
-<br><br>
-
-#### その他
+<img src="/public/appsync_events_yjs_sync_architecture.png" width="80%">
 
 - Cognito（認証）
 - 認可（ドキュメントに招待する方式）
+
+---
+layout: center
+---
+
+### 作ったものの説明終わり
+
+---
+layout: center
+---
+
+## 結果説明の前に
+
+フォールバックが発生したことはどうやって調べるの？
+
+---
+layout: center
+---
+
+- claudeのログはjsonl形式でセッションごとに記録される
+- フォールバック発生時にはjsonに`"subtype": "model_refusal_fallback"`が現れる
+- duckdbで複数jsonlをまとめて探索
+- Anthropic公式Skillに`duckdb-skills`がある
 
 ---
 layout: center
@@ -149,7 +185,7 @@ layout: center
 ### 結果
 
 - Agentの実行時間: 6時間弱
-- 消費トークン/コスト: 236.4MTok/$600
+- コスト: $600
 - フォールバック: なし
 
 ---
@@ -186,8 +222,7 @@ layout: center
 | git commit / push                         | 19      |
 | ブラウザ操作(Chrome MCP)                  | 21      |
 | `cdk deploy`(実デプロイ)              | 5   |
-| 実 AWS を叩く統合テスト(`test:integ`)     | 12      |
-| `assume`/`assumego`(MFA 付き assume-role) | 5       |
+| AWS を叩く統合テスト     | 12      |
 | AWS CLI 実行(log調査やDynamoDBのデータ確認)| 8       |
 
 ---
@@ -218,4 +253,25 @@ layout: center
 layout: center
 ---
 
-### と思ったら。。。
+### 😇
+
+---
+layout: center
+---
+
+### Opus 5でも同じものを実装してみました
+
+---
+layout: center
+---
+
+### 結果
+
+---
+layout: center
+---
+
+| 使用モデル | 実装時間 | コスト | 品質 | 
+| ---       | ---     | ---   | ---  |
+| Fable 5   | 6時間弱  | $600  | ---  |
+| Opus 5    | 8.5時間  | $303  | awarenessなし、矢印キーやEnterキーでの操作はサポートされず |
