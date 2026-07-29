@@ -353,7 +353,7 @@ layout: center
 
 ---
 layout: full
-clicks: 5
+clicks: 4
 ---
 
 <div class="h-full flex flex-col gap-3 p-6 pb-8">
