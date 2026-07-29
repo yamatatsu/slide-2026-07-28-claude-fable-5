@@ -193,17 +193,19 @@ layout: center
 ---
 
 ```jsonl {lines:true}
-
-{"parentUuid":"eac1d6ab-19c8-42ae-843a-c4dfeb4cbb5a","isSidechain":false,...}
-{"type":"ai-title","aiTitle":"セッションIDの確認","sessionId":"bb58545c-38dd-41b8-b1b4-5fb1ffe747b3"}
-{"parentUuid":"c9331dec-1941-49dd-9233-2b8f0e33f6a8","isSidechain":false,"message":...}
-{"parentUuid":"4c0cf423-5f86-441a-bfbf-42488386c9c1","isSidechain":false,"message":...}
-{"parentUuid":"33d22cfa-d398-40ef-b883-7c631b75837c","isSidechain":false,"attachment":...}
-{"parentUuid":"4296dba9-9cdb-47d5-bbb9-fe71884d4abe","isSidechain":false,"type":"system",...}
-{"parentUuid":"f40bb513-b185-48ff-91c1-5a030163b0ec","isSidechain":false,"type":"system",...}
-{"type":"file-history-snapshot","messageId":"f980b4de-a7cf-4f02-b91e-eb419cc0dc18","snapshot":...}
-{"parentUuid":"e83eb058-fa8a-4750-bed9-66a5d0eb4422","isSidechain":false,...}
-{"parentUuid":"f980b4de-a7cf-4f02-b91e-eb419cc0dc18","isSidechain":false,"type":"system",...}
+{"parentUuid":"xxx","isSidechain":false,"promptId":"xxx","type":"user","message":...}
+{"parentUuid":"xxx","isSidechain":false,"attachment":{"type":"deferred_tools_delta",...}
+{"parentUuid":"xxx","isSidechain":false,"attachment":{"type":"agent_listing_delta",...}
+{"parentUuid":"xxx","isSidechain":false,"attachment":{"type":"mcp_instructions_delta",...}
+{"parentUuid":"xxx","isSidechain":false,"attachment":{"type":"skill_listing",...}
+{"parentUuid":"xxx","isSidechain":false,"message":{"model":"claude-opus-5",...}
+{"parentUuid":"xxx","isSidechain":false,"message":{"model":"claude-opus-5",...}
+{"parentUuid":"xxx","isSidechain":false,"attachment":{"type":"hook_success",...}
+{"parentUuid":"xxx","isSidechain":false,"type":"system","subtype":"stop_hook_summary",...}
+{"parentUuid":"xxx","isSidechain":false,"type":"system","subtype":"turn_duration",...}
+{"type":"file-history-snapshot","messageId":"xxx","snapshot":{"messageId":"xxx",...}
+{"parentUuid":"xxx","isSidechain":false,"promptId":"xxx","type":"user","message":...}
+{"parentUuid":"xxx","isSidechain":false,"type":"system","subtype":"model_refusal_fallback",...}
 ```
 
 ---
@@ -212,25 +214,22 @@ layout: center
 
 <div class="jsonl-wrap">
 
-```jsonl {all|5|6}{lines:true}
+```jsonl {all|5|6|10-11}{lines:true}
 {
-  "parentUuid": "f980b4de-a7cf-4f02-b91e-eb419cc0dc18",
+  "parentUuid": "xxx",
   "isSidechain": false,
   "type": "system",
   "subtype": "model_refusal_fallback",
-  "content": "Opus 5 (1M context)'s safeguards flagged this message. Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legitimate coding, cybersecurity, and biology tasks. Switched to Opus 4.8. Send feedback with /feedback or learn more: https://support.claude.com/en/articles/16049681",
+  "content": "Fable 5's safeguards flagged this message. Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legitimate coding, cybersecurity, and biology tasks. Switched to Opus 5. Send feedback with /feedback or learn more: https://support.claude.com/en/articles/15363606",
   "level": "warning",
   "trigger": "refusal",
   "direction": "retry",
-  "originalModel": "claude-opus-5[1m]",
-  "fallbackModel": "claude-opus-4-8",
-  "requestId": "req_011CdW547fSLSzP6o9TUtqEz",
+  "originalModel": "claude-fable-5",
+  "fallbackModel": "claude-opus-5",
   "apiRefusalCategory": "cyber",
-  "apiRefusalExplanation": "This request triggered restrictions on violative cyber content and was blocked under Anthropic's Usage Policy. To learn more, see https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback.",
-  "retractedMessageUuids": [],
-  "refusedUserMessageUuid": "f980b4de-a7cf-4f02-b91e-eb419cc0dc18",
+  "apiRefusalExplanation": null,
   "isMeta": false,
-  "timestamp": "2026-07-29T08:56:55.160Z",
+  "timestamp": "2026-07-29T11:53:33.949Z",
   "userType": "external",
   "entrypoint": "cli",
   "version": "2.1.220",
