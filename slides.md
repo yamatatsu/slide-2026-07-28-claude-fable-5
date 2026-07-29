@@ -1,6 +1,7 @@
 ---
 theme: default
 title: Claude Fable 5について
+favicon: https://yamatatsu.github.io/slide-2023-03-13-devio-day-one/yamatatsu.png
 info: |
   Claude Fable 5 の紹介スライド。
 class: text-center
