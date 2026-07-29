@@ -72,11 +72,6 @@ export const registry: Record<string, PageScenario> = {
         title: 'アライメントは過去最高',
         note: 'Opus 5は自動行動監査で過去最もアラインしたモデルと評価されました。Claude憲法への遵守はOpus 4.8・Sonnet 5・Fable 5のいずれよりも優秀です。',
       },
-      {
-        find: 'expect the classifiers to intervene around 85% less often',
-        title: 'セーフガードの発動は約85%減',
-        note: 'サイバー分類器はFable 5より緩やかで、発動頻度はFable 5比で約85%少ない見込み。Claude Code等では、フラグされたリクエストはOpus 4.8へフォールバックします。',
-      },
     ],
   },
 

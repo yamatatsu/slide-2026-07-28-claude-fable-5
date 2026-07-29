@@ -11,9 +11,10 @@ transition: slide-left
 mdc: true
 ---
 
-# Fable 5 の<br>フォールバックについて
+## Fable 5 のフォールバックについて
 
-やまたつ
+2026-07-30 / やまたつ
+#### Claude Code セミナー ~ Claude Fable 5編 ~
 
 ---
 layout: center
@@ -54,7 +55,7 @@ clicks: 2
 
 <div class="h-full flex flex-col gap-3 p-6 pb-8">
   <div class="flex items-baseline gap-4">
-    <h2 class="!m-0 !text-2xl">Fable 5のフォールバック</h2>
+    <h2 class="!m-0 !text-2xl">Fable 5について</h2>
     <span class="text-xs op50 font-mono">anthropic.com/news/claude-fable-5-mythos-5</span>
   </div>
   <WebHighlight name="about" class="flex-1 min-h-0" />
@@ -70,7 +71,7 @@ layout: center
 layout: center
 ---
 
-### なにか作ってみよう 🤔
+### なにか作ってみよう 💡
 
 ---
 layout: center
@@ -90,7 +91,7 @@ layout: center
 layout: center
 ---
 
-## できたもの紹介
+## できたもの紹介（デモ）
 
 ---
 layout: full
@@ -102,6 +103,17 @@ layout: full
   <source src="/public/demo.mp4" type="video/mp4" />
 </SlidevVideo>
 
+---
+layout: center
+---
+
+何を作ったのか
+
+- Googleスプレッドシート的な何か
+- CRDT（共同編集アルゴリズム）
+- サーバーレス
+
+<!--
 ---
 layout: full
 ---
@@ -125,7 +137,9 @@ layout: full
     共同編集で必須なundo/redo機能もサポートされており、加えてWebRTC, WebSocketなどのプロトコル、IndexedDB, LevelDBなどのストレージ、React, Vueなどのフレームワーク、monaco, CodeMirrorなどのエディターなど、さまざまな技術との組み合わせに対応しています。
   </span>
 </v-clicks>
+-->
 
+<!--
 ---
 layout: center
 ---
@@ -137,6 +151,7 @@ Yjsとは
 - JavaScriptで実装されている
 - awarenessをサポート
 - undo/redoをサポート
+-->
 
 ---
 layout: full
@@ -176,13 +191,84 @@ layout: center
 layout: center
 ---
 
+```jsonl {lines:true}
+
+{"parentUuid":"eac1d6ab-19c8-42ae-843a-c4dfeb4cbb5a","isSidechain":false,...}
+{"type":"ai-title","aiTitle":"セッションIDの確認","sessionId":"bb58545c-38dd-41b8-b1b4-5fb1ffe747b3"}
+{"parentUuid":"c9331dec-1941-49dd-9233-2b8f0e33f6a8","isSidechain":false,"message":...}
+{"parentUuid":"4c0cf423-5f86-441a-bfbf-42488386c9c1","isSidechain":false,"message":...}
+{"parentUuid":"33d22cfa-d398-40ef-b883-7c631b75837c","isSidechain":false,"attachment":...}
+{"parentUuid":"4296dba9-9cdb-47d5-bbb9-fe71884d4abe","isSidechain":false,"type":"system",...}
+{"parentUuid":"f40bb513-b185-48ff-91c1-5a030163b0ec","isSidechain":false,"type":"system",...}
+{"type":"file-history-snapshot","messageId":"f980b4de-a7cf-4f02-b91e-eb419cc0dc18","snapshot":...}
+{"parentUuid":"e83eb058-fa8a-4750-bed9-66a5d0eb4422","isSidechain":false,...}
+{"parentUuid":"f980b4de-a7cf-4f02-b91e-eb419cc0dc18","isSidechain":false,"type":"system",...}
+```
+
+---
+layout: center
+---
+
+<div class="jsonl-wrap">
+
+```jsonl {all|5|6}{lines:true}
+{
+  "parentUuid": "f980b4de-a7cf-4f02-b91e-eb419cc0dc18",
+  "isSidechain": false,
+  "type": "system",
+  "subtype": "model_refusal_fallback",
+  "content": "Opus 5 (1M context)'s safeguards flagged this message. Our intentionally broad safeguards allow us to deliver more capabilities faster, but can sometimes flag legitimate coding, cybersecurity, and biology tasks. Switched to Opus 4.8. Send feedback with /feedback or learn more: https://support.claude.com/en/articles/16049681",
+  "level": "warning",
+  "trigger": "refusal",
+  "direction": "retry",
+  "originalModel": "claude-opus-5[1m]",
+  "fallbackModel": "claude-opus-4-8",
+  "requestId": "req_011CdW547fSLSzP6o9TUtqEz",
+  "apiRefusalCategory": "cyber",
+  "apiRefusalExplanation": "This request triggered restrictions on violative cyber content and was blocked under Anthropic's Usage Policy. To learn more, see https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback.",
+  "retractedMessageUuids": [],
+  "refusedUserMessageUuid": "f980b4de-a7cf-4f02-b91e-eb419cc0dc18",
+  "isMeta": false,
+  "timestamp": "2026-07-29T08:56:55.160Z",
+  "userType": "external",
+  "entrypoint": "cli",
+  "version": "2.1.220",
+  "gitBranch": "main"
+}
+```
+
+</div>
+
+<style>
+.jsonl-wrap {
+  width: 900px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.jsonl-wrap .slidev-code,
+.jsonl-wrap pre,
+.jsonl-wrap code {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+.jsonl-wrap .slidev-code {
+  font-size: 0.5rem;
+  line-height: 1.4;
+}
+</style>
+
+---
+layout: center
+---
+
 # 結果
 
 ---
 layout: center
 ---
 
-### 結果
+# 結果
 
 - Agentの実行時間: 6時間弱
 - コスト: $600
@@ -229,7 +315,17 @@ layout: center
 layout: center
 ---
 
-### 考察
+# 🙃
+
+---
+layout: center
+---
+
+# 考察 🙃
+
+- グリーンフィールドだとセーフガードが余計な情報に引っ張られずに判定できる？
+- ブラウンフィールドで過去にセキュリティチェックとかをやっていいると、それがコンテキスト載って引っかかってしまう？
+- 7月初期に比べてセーフガードが改善されている？
 
 ---
 layout: center
@@ -253,7 +349,7 @@ layout: center
 layout: center
 ---
 
-### 😇
+# 😇
 
 ---
 layout: full
@@ -278,13 +374,118 @@ layout: center
 layout: center
 ---
 
-### 結果
+## 進め方を合わせた
+
+<br>
+
+1. v3 設計ドキュメント作成
+1. v3 実装 → デプロイ
+1. v4 検証用フロントエンド実装
+1. v5 設計
+1. v5 実装 → デプロイ
 
 ---
 layout: center
 ---
 
-| 使用モデル | 実装時間 | コスト | 品質 | 
-| ---       | ---     | ---   | ---  |
-| Fable 5   | 6時間弱  | $600  | ---  |
-| Opus 5    | 8.5時間  | $303  | awarenessなし、矢印キーやEnterキーでの操作はサポートされず |
+### できあがったものがこちら（デモ）
+
+---
+layout: center
+---
+
+# 結果
+
+---
+layout: center
+---
+
+|                      | Fable 5 | Opus 5 |
+| -------------------- | ------: | -----: |
+|実装時間|6時間弱|8.5時間|
+|コスト|$600|$303|
+
+
+---
+layout: center
+---
+
+|                      | Fable 5 | Opus 5 |
+| -------------------- | ------: | -----: |
+| 手打ち指示           | 45      | 29     |
+| 出力トークン         | 2.72 M  | 2.76 M |
+| キャッシュ読込       | 240 M   | 660 M  |
+| tool_use             | 1,054   | 1,667  |
+
+<!--
+総出力トークンはほぼ同じ(差1%)なのに、キャッシュ読込は Opus 5 が 2.7 倍でした。同じ量を書くために読み返す量が大きく違います。
+差が最大なのは「v4フロントエンド実装」で、tool_use が 68 vs 310(4.6倍)、キャッシュ読込が 8.97M vs 103M(11.5倍)です。
+-->
+
+---
+layout: center
+---
+
+**1指示あたりの API ターン数(中央値)**
+
+| 粒度         | Fable 5 | Opus 5 |
+| ------------ | ------: | -----: |
+| 大タスク   | 30.5    | 68.0   |
+| 小作業     | 6.5     | 27.0   |
+| 質問・相談 | 2.5     | 11.0   |
+| 継続       | 10.0    | 94.0   |
+| 全体         | 6.0     | 25.0   |
+
+<!--
+**4粒度すべてで方向が一致し、逆転が1つもありません。** Phase 1 で「指示回数差は C1(学習効果)と不可分」と保留した点について、粒度を揃えても自走量の差は残ることが確認できました。完全な統制ではありませんが、粒度差だけでは説明できない差があります。差が最小なのは L(2.2×)で、**Opus 5 は小さい依頼や質問に対しても大きく動く**傾向が目立ちます。
+
+**最も鮮明だったのは並列ツール発行率で、34.4% vs 8.5%。** Opus 5 はほぼ常に1ターン1ツール(1.09 件/ターン)で進みます。一方、連続実行チェーンの長さは両者ほぼ同じ(中央値2)でした。**違うのはチェーンの長さではなく本数**です。
+
+-->
+
+---
+layout: center
+---
+
+**行動特性**
+
+- **Opus 5 のツール使用の過半(52.0%)が Bash。** Fable 5 は 30.7% で Write/Edit/Read が厚い。
+- **Write / Edit が 1.11 vs 0.67。** Write の絶対数はほぼ同じ(219 vs 222)なのに Edit は Opus 5 が 1.7 倍。Fable 5 は全体書き出し寄り、Opus 5 は部分編集の積み重ね。
+- **編集対象領域の配分には差がほぼない** — 「どこを編集したか」ではなく「どう編集したか」に差が出ています。
+
+---
+layout: center
+---
+
+## 感想
+
+Fable5使い放題の世界線に生まれ変わりたい 😇
+
+---
+layout: center
+---
+
+Opus5にお願いしてみた。
+
+> 「転生したらFable5が使い放題だったのでとりあえず無双してみた」  
+> ってタイトルのラノベの書き出し3行を考えて
+
+---
+layout: center
+---
+
+> 目が覚めると、俺の手元には無限のトークンがあった。  
+> 「制限なし、レート上限なし……つまり、この世界で最強ってことだよな?」  
+> ——ただ一つ、誰も教えてくれなかった。この力には「安全装置」が付いているということを。
+
+---
+layout: center
+---
+
+# おわります！
+
+---
+layout: center
+---
+
+# ご清聴ありがとうございまいた 🙇🏻
