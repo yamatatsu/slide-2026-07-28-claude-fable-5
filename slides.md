@@ -183,7 +183,7 @@ layout: center
 layout: center
 ---
 
-- claudeのログはjsonl形式でセッションごとに記録される
+- Claude Codeのログはjsonl形式でセッションごとに記録される
 - フォールバック発生時にはjsonに`"subtype": "model_refusal_fallback"`が現れる
 - duckdbで複数jsonlをまとめて探索
 - Anthropic公式Skillに`duckdb-skills`がある
